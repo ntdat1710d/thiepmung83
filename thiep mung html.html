@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp 8/3</title>
+    <style>
+        body {
+            background-color: #ffe6f2;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .card {
+            width: 300px;
+            background: white;
+            padding: 20px;
+            margin: 100px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .message {
+            font-size: 20px;
+            color: #d63384;
+            display: none;
+        }
+        .btn {
+            background-color: #ff66b2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #ff3385;
+        }
+        @keyframes flowerFall {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(100vh); }
+        }
+        .flower {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            color: pink;
+            font-size: 20px;
+            top: 0;
+            animation: flowerFall linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Thiệp mừng 8/3! 🌷</h2>
+        <button class="btn" onclick="showMessage()">Ấn để nhận❤️</button>
+        <p class="message">Chúc em xinh đẹp hơn cả hoa, dịu dàng hơn vệt nắng, ngọt ngào tựa viên kẹo và lung linh hơn ngàn vì sao trên trời 💕 </p>
+    </div>
+    <script>
+        function showMessage() {
+            document.querySelector('.message').style.display = 'block';
+        }
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.innerHTML = '🌸';
+            flower.style.left = Math.random() * window.innerWidth + 'px';
+            flower.style.animationDuration = (2 + Math.random() * 3) + 's';
+            document.body.appendChild(flower);
+            setTimeout(() => flower.remove(), 5000);
+        }
+        setInterval(createFlower, 500);
+    </script>
+</body>
+</html>
+
